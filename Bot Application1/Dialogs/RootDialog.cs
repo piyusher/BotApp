@@ -24,7 +24,7 @@ namespace Bot_Application1.Dialogs
             string txt = activity.Text.ToLower() + " ";
             if (txt.StartsWith("hi ") || txt.StartsWith("Hello ") || txt.StartsWith("hey "))
             {
-                await context.PostAsync("Hi! My name is PK Bot and I am created by Piyush Khanna using BotFramework! I can do following things. What would you like to do?");
+                await context.PostAsync("Hi! My name is PK Bot and I am programmed by Piyush Khanna using BotFramework! I can do following things. What would you like to do?");
                 ShowIntroPrompt(context);
                 
             }
@@ -36,7 +36,8 @@ namespace Bot_Application1.Dialogs
 
         private void ShowIntroPrompt(IDialogContext context)
         {
-            var opt = new PromptOptions<String>("Choose from following -", "Didn't get that, please try again", "You are tough! I give up!", new string[] {"Puzzle", "Weather" });
+
+            var opt = new PromptOptions<String>("Choose from following -", "Didn't get that, please try again", "You are tough! I give up!", new string[] {"Puzzle Me!", "Weather Info" });
             PromptDialog.Choice(context, AfterIntroResetAsync, opt);
         }
 

@@ -49,13 +49,13 @@ namespace Bot_Application1
                         if (newMember.Id != message.Recipient.Id)
                         {
                             var reply = message.CreateReply();
-                            reply.Text = $"Welcome! My name is PKBot and i am programmed by Piyush Khanna.";
+                            reply.Text = $"Hi there!";
                             MicrosoftAppCredentials cred = new MicrosoftAppCredentials();
                             cred.MicrosoftAppId = ConfigurationManager.AppSettings["MicrosoftAppId"];
                             cred.MicrosoftAppPassword = ConfigurationManager.AppSettings["MicrosoftAppPassword"];
 
                             var connector = new ConnectorClient(new Uri(message.ServiceUrl.ToString()),cred);
-                            connector.Conversations.ReplyToActivityAsync(reply);
+                            connector.Conversations.ReplyToActivity(reply);
                         }
                     }
                 }
